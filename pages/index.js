@@ -1,5 +1,4 @@
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { Layout } from "../components/Layout";
 import { tinaField, useTina } from "tinacms/dist/react";
 import { client } from "../tina/__generated__/client";
 
@@ -11,13 +10,27 @@ export default function Home(props) {
     data: props.data,
   });
 
-  const content = data.page.body;
   return (
-    <Layout>
       <div data-tina-field={tinaField(data.page, "body")}>
-        <TinaMarkdown content={content} />
+         <nav>
+          <a href="/">{data.page.navTitle1}</a>
+          <a href="#us">{data.page.navTitle2}</a>
+          <a href="/admin">{data.page.navTitle3}</a>
+        </nav>
+        <div className="home">
+          <h1>{data.page.title}</h1>
+          <div id="us" class="images">
+             <img src={data.page.image1}></img>
+             <img src={data.page.image2}></img>
+              <img src={data.page.image3}></img>
+             <img src={data.page.image4}></img>
+          </div>
+          <TinaMarkdown content={data.page.body} />
+        </div>
+        <footer>
+          <p>{data.page.footer}</p>
+        </footer>
       </div>
-    </Layout>
   );
 }
 

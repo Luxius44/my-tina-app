@@ -9,11 +9,56 @@ const schema = defineSchema({
       format: "mdx",
       fields: [
         {
+          type: "string",
+          label: "Nav title 1",
+          name: "navTitle1",
+        },
+        {
+          type: "string",
+          label: "Nav title 2",
+          name: "navTitle2",
+        },
+        {
+          type: "string",
+          label: "Nav title 3",
+          name: "navTitle3",
+        },
+        {
+          type :"string",
+          label:"Title",
+          name:"title",
+        },
+        {
+          type:"image",
+          label: "Image 1",
+          name:"image1",
+        },
+        {
+          type:"image",
+          label: "Image 2",
+          name:"image2",
+        },
+        {
+          type:"image",
+          label: "Image 3",
+          name:"image3",
+        },
+        {
+          type:"image",
+          label: "Image 4",
+          name:"image4",
+        },
+        {
           name: "body",
           label: "Main Content",
           type: "rich-text",
           isBody: true,
         },
+        {
+          type:"string",
+          label:"Footer",
+          name:"footer"
+        }
       ],
       ui: {
         router: ({ document }) => {
@@ -21,32 +66,6 @@ const schema = defineSchema({
             return `/`;
           }
           return undefined;
-        },
-      },
-    },
-    {
-      label: "Blog Posts",
-      name: "post",
-      path: "content/post",
-      fields: [
-        {
-          type: "string",
-          label: "Title",
-          name: "title",
-        },
-        {
-          type: "string",
-          label: "Blog Post Body",
-          name: "body",
-          isBody: true,
-          ui: {
-            component: "textarea",
-          },
-        },
-      ],
-      ui: {
-        router: ({ document }) => {
-          return `/posts/${document._sys.filename}`;
         },
       },
     },
